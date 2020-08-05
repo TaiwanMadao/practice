@@ -1,0 +1,9 @@
+8
+R A 0
+A B 0
+A C 1
+B D 0
+B E 1
+E F 1
+C G 0
+G H 1
