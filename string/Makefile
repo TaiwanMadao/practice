@@ -1,5 +1,5 @@
 all:
-	@echo AAA
+	@echo NNN
 
 clean:
 

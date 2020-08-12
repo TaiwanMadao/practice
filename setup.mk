@@ -1,5 +1,15 @@
-CFLAGS := -std=c99
-CPPFLAGS := -Iinclude
-CURDIR != pwd
+CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic
 
-export CFLAGS CPPFLAGS CURDIR
+CURDIR = $(eval CURDIR := $$(shell pwd))$(CURDIR)
+
+PRINT_ARCH = $(shell uname -m)
+
+ifdef DEBUG
+
+CFLAGS += -g3
+
+else #DEBUG
+
+CFLAGS += -O3
+
+endif #DEBUG

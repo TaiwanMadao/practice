@@ -1,6 +1,6 @@
 #include "util.h"
 #include "heap.h"
-#include "limits.h"
+#include <limits.h>
 
 //comparison sort
 void selection(int * const, const int);
