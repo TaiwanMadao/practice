@@ -23,25 +23,25 @@ include target.mk
 
 else #(,$(filter _%,$(notdir $(CURDIR))))
 
-SRCDIR := ..
+#SRCDIR := ...
 
-SRCS := $(notdir $(wildcard $(SRCDIR)/*.c))
+#SRCS := $(notdir $(wildcard $(SRCDIR)/*.c))
 
-OBJS := $(SRCS:.c=.o)
+#OBJS := $(SRCS:.c=.o)
 
-HDRDIR := ../../util
+#HDRDIR := ...
 
 CPPFLAGS := $(addprefix -I,$(HDRDIR))
 
-TARGET := $(SRCS:%.c=%)
+#TARGET := $(SRCS:%.c=%)
 
-vpath %.c $(SRCDIR)
+#vpath %.c $(SRCDIR)
 
-vpath %.h $(HDRDIR)
+#vpath %.h $(HDRDIR)
 
 all: $(TARGET);
 
-%: %.c
+#%: %.c
 
 clean:
 	$(RM) $(OBJS) $(TARGET)

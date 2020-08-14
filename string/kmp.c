@@ -1,5 +1,4 @@
 #include "util.h"
-#define MAX_STR_SIZE 256
 
 struct _queue
 {
@@ -61,7 +60,7 @@ void KMP(const char * const txt, const char * const pat)
 	free(Q);
 }
 
-int match(const char * const txt, const char * const pat, const int const * const F, const int flag)
+int match(const char * const txt, const char * const pat, const int * const F, const int flag)
 {
 	const int txtlen = strlen(txt);
 	const int patlen = strlen(pat);

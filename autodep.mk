@@ -5,7 +5,7 @@ $(error SRCS should not be empty!)
 
 endif #(,$(filter %.c,$(SRCS)))
 
-.SUFFIXES:
+#.SUFFIXES:
 
 DEPDIR := .deps
 
@@ -24,6 +24,8 @@ $(DEPDIR):
 DEPFILES = $(SRCS:%.c=$(DEPDIR)/%.d)
 
 $(DEPFILES):;
+
+.PRECIOUS: %.o %.d
 
 #%.d:;
 
