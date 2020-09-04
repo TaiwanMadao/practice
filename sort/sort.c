@@ -33,7 +33,7 @@ void (*sort[])(int *const, const int) = {
 	radix
 };
 
-int main(){
+int main(void){
 	int type, num, *item;
 	printf("Enter the sort type\n");
 	printf("Comparison   -> 0.selection 1.insertion 2.bubble 3.merge 4.quick 5.heap 6.shell 7.shaker\n");

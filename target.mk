@@ -4,9 +4,15 @@ ifndef _ARCH
 
 _ARCH := $(PRINT_ARCH)
 
-endif
+endif #_ARCH
 
 OBJDIR := _$(_ARCH)
+
+ifdef DEBUG
+
+OBJDIR := $(OBJDIR)_debug
+
+endif #DEBUG
 
 #MAKETARGET = $(MAKE) --no-print-directory $(MAKECMDGOALS) -f ../Makefile -C $@
 

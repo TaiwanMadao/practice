@@ -19,16 +19,12 @@ DEPFLAGS = -MT $@ -MF $(DEPDIR)/$*.d -MMD -MP
 $(DEPDIR):
 	@ [ -d $@ ] || mkdir -p $@
 
-%.d:;
-
 DEPFILES = $(SRCS:%.c=$(DEPDIR)/%.d)
 
 $(DEPFILES):;
 
-.PRECIOUS: %.o %.d
-
 #%.d:;
 
-include $(wildcard $(DEPDIR)/*.d)
+.PRECIOUS: %.o %.d
 
-#.PRECIOUS: %.o %.d
+include $(wildcard $(DEPDIR)/*.d)
