@@ -1,8 +1,10 @@
-CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic
+CFLAGS := -Wall -Wextra -Werror -std=gnu99 -pedantic
 
 CURDIR = $(eval CURDIR := $$(shell pwd))$(CURDIR)
 
 PRINT_ARCH = $(shell uname -m)
+
+RM = rm -rf
 
 ifdef DEBUG
 

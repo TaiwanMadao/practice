@@ -14,15 +14,21 @@ OBJDIR := $(OBJDIR)_debug
 
 endif #DEBUG
 
-#MAKETARGET = $(MAKE) --no-print-directory $(MAKECMDGOALS) -f ../Makefile -C $@
+# MAKETARGET = $(MAKE) --no-print-directory $(MAKECMDGOALS) -f ../Makefile -C $@
 
-%: $(OBJDIR); 
+%:: $(OBJDIR); 
 
 $(OBJDIR):
 	@ [ -d $@ ] || mkdir -p $@
 	@ $(MAKE) --no-print-directory $(MAKECMDGOALS) -f ../Makefile -C $@
 
 .PHONY: $(OBJDIR)
+
+clean:
+	$(info RM $(OBJDIR))
+	-@ $(RM) $(OBJDIR)
+
+.PHONY: clean
 
 Makefile:;
 %.mk:;

@@ -4,7 +4,7 @@ ifeq (0,$(MAKELEVEL))
 
 INCDIR = $(dir $(shell pwd))
 
-%: $(INCDIR);
+%:: $(INCDIR);
 
 $(INCDIR):
 	@ $(MAKE) --no-print-directory -I$@ $(MAKECMDGOALS)
@@ -40,14 +40,12 @@ vpath %.c $(SRCDIR)
 vpath %.h $(HDRDIR)
 
 $(TARGET): $(OBJS)
-	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+	$(info GEN $@; LINK $^)
+	@ $(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 all: $(TARGET);
 
-clean:
-	$(RM) $(OBJS) $(TARGET)
-
-.PHONY: all clean
+.PHONY: all
 
 include autodep.mk
 

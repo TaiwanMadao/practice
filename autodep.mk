@@ -5,16 +5,20 @@ $(error SRCS should not be empty!)
 
 endif #(,$(filter %.c,$(SRCS)))
 
-#.SUFFIXES:
+.SUFFIXES:
 
 DEPDIR := .deps
 
 DEPFLAGS = -MT $@ -MF $(DEPDIR)/$*.d -MMD -MP
 
+POSTCOMPILE = touch $@
+
 #vpath %.d $(DEPDIR)
 
-%.o: %.c $(DEPDIR)/%.d| $(DEPDIR)
-	$(COMPILE.c) $(OUTPUT_OPTION) $(DEPFLAGS) $<
+%.o:: %.c $(DEPDIR)/%.d| $(DEPDIR)
+	$(info GEN $@; COMPILE $<)
+	@ $(COMPILE.c) $(OUTPUT_OPTION) $(DEPFLAGS) $<
+	@ $(POSTCOMPILE)
 
 $(DEPDIR):
 	@ [ -d $@ ] || mkdir -p $@
