@@ -21,7 +21,7 @@ POSTCOMPILE = touch $@
 	@ $(POSTCOMPILE)
 
 $(DEPDIR):
-	@ [ -d $@ ] || mkdir -p $@
+	@ test -d $@  || mkdir -p $@
 
 DEPFILES = $(SRCS:%.c=$(DEPDIR)/%.d)
 
